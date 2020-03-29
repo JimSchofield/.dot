@@ -4,6 +4,6 @@ This is a very simple setup to help me when switching computers.  The only invol
 
 ## Todo:
 Create an install script which
-- [  ] Checks for brew and installs 
-- [  ] Checks for necessary utils and installs 
-- [  ] Creates sym links for vim, tmux, and zprofile
+- [ ] Checks for brew and installs 
+- [ ] Checks for necessary utils and installs 
+- [ ] Creates sym links for vim, tmux, and zprofile
