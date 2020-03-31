@@ -11,7 +11,7 @@ export EDITOR=nvim
 source ~/.dot/check_for_tools.sh
 
 # GENERAL
-alias ll="ls -la"
+alias ll="exa -la"
 alias ip="curl icanhazip.com"
 
 # SYSTEM SPECIFIC
