@@ -21,4 +21,4 @@ set -s escape-time 0
 source-file "${HOME}/.tmux-themepack/powerline/default/cyan.tmuxtheme"
 
 # set mouse mode on <leader> m
-bind m run ". ~/.tmux.util && toggle_mouse"
+bind m run ". ~/.dot/.tmux.util && toggle_mouse"
