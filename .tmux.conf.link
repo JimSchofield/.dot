@@ -1,6 +1,10 @@
 # reload tmux config
 bind r source-file ~/.tmux.conf\; display "File re-sourced!"
 
+# Terminal type configuration
+set -g default-terminal "screen-256color"
+set -ga terminal-overrides ",xterm-256color:Tc"
+
 # Create/destroy a session
 bind + new-session
 bind - confirm-before -p "kill-session #S? (y/n)" kill-session
