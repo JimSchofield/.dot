@@ -1,0 +1,9 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+name = 
+email = 
+
+[alias]
+    fb = "!git checkout $(git branch | fzf)"
+    ll = "log --oneline"
