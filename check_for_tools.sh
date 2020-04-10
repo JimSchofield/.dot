@@ -17,7 +17,7 @@ required_apps=(
     nvim
     rg
     tmux
-    vim
+    nvim
 )
 
 for app in "${required_apps[@]}"; do
