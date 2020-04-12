@@ -4,22 +4,39 @@
 
 echo 'Checking for necessary tools...'
 
-command_exists() {
-    type "$1" > /dev/null 2>&1 || { echo >&2 "I require $1 but it doesn't exist! Make sure to intall it." }
-}
-
 required_apps=(
     bat
+    exa
     fd
     fzf
     git
-    http-server
     nvim
+    npm
+    node
+    rustc
     rg
     tmux
-    nvim
 )
 
+something_missing=false
+
+command_missing() {
+    if (type "$1" &> /dev/null); then
+        return 1;
+    else
+        return 0;
+    fi
+}
+
 for app in "${required_apps[@]}"; do
-    type "$app" > /dev/null 2>&1 || { echo >&2 "$app doesn't exist! Make sure to intall it." } 
+    if command_missing "$app"; then
+        echo "$app is missing";
+        something_missing=true
+    fi
 done
+
+if [ "$something_missing" = "true" ]; then
+    echo "Missing some programs."
+else
+    echo "You're all set! 😃"
+fi
