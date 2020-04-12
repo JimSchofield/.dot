@@ -11,9 +11,3 @@ mapescape
 # map open file to system default in gui
 alias op="xdg-open"                                                                                                                                                                                                              
 
-# Local-specific config
-alias magick="~/bin/magick"                                                                                                                                                                                                      
-
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"                                                                                                                                                                               
-export PATH="$HOME/.cargo/bin:$PATH" 

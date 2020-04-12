@@ -6,6 +6,7 @@ echo 'Checking for necessary tools...'
 
 required_apps=(
     bat
+    brew
     exa
     fd
     fzf
