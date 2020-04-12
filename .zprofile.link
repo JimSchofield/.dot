@@ -1,6 +1,20 @@
+#!/bin/zsh
 # /* vim: set filetype=sh : */
 
-source ~/.bash_profile
+#OS specific
+if [ "$OSTYPE" = "Darwin" ]; then
+    # Mac specific stuff
+elif [ "$OSTYPE" = "Linux" ]; then
+    #Linux specific
+    source ~/.dot/.zprofile.linux
+fi
+
+# Source existing bash profiles
+# TODO: maybe remove?
+if [ -f ~/.bash_profile ]; then
+    source ~/.bash_profile
+fi
+
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="/Users/jschofie/Library/Python/2.7/bin:$PATH"
@@ -44,3 +58,4 @@ alias t="task"
 alias tw="clear;task +work"
 alias tc="clear;task"
 alias tt="clear;task +TODAY"
+
