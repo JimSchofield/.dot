@@ -2,8 +2,9 @@
 echo "Sourcing linux-specific config"
 
 # Map right alt to escape...                                                                                                                                                                                                     
-alias mapescape="xmodmap -e 'keycode 108 = Escape'"                                                                                                                                                                              
-xmodmap -e 'keycode 108 = Escape'                                                                                                                                                                                                
+# I use xev to inspect key number and then map here
+alias mapescape="xmodmap -e 'keycode 134 = Escape'"                                                                                                                                                                              
+xmodmap -e 'keycode 134 = Escape'                                                                                                                                                                                                
 
 # Automatically map escape on terminal load
 mapescape
