@@ -44,6 +44,9 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden'
 # Search from ~
 alias go='cd "$(fd . $HOME --type d --hidden| fzf)"'
 
+# Search from ./
+alias gfh='cd "$(fd . "./" --type d --hidden| fzf)"'
+
 # HTTP-SERVER
 alias serve="http-server ."
 
