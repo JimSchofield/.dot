@@ -62,6 +62,7 @@ alias gp="git push"
 alias gpp="git pull; git push"
 alias unstage="git reset HEAD"
 alias revert="git checkout --"
+alias gcd="git checkout develop"
 
 # TASK (command line task list)
 alias t="task"
