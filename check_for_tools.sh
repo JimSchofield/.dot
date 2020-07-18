@@ -11,11 +11,12 @@ required_apps=(
     fd
     fzf
     git
-    nvim
-    npm
     node
-    rustc
+    npm
+    nvim
     rg
+    rustc
+    tig
     tmux
 )
 
