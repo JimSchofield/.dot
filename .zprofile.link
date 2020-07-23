@@ -4,8 +4,9 @@
 #OS specific
 if [ "$OSTYPE" = "Darwin" ]; then
     # Mac specific stuff
-elif [ "$OSTYPE" = "Linux" ]; then
+elif [ "$OSTYPE" = "linux-gnu" ]; then
     #Linux specific
+    echo "Linux"
     source ~/.dot/.zprofile.linux
 fi
 
