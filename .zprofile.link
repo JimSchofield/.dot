@@ -55,6 +55,9 @@ alias serve="http-server ."
 alias cpwd='echo "cd \"`pwd`\"" > ~/.switch-dir'
 alias goto='source ~/.switch-dir'
 
+# JOURNAL
+alias journal='nvim ~/blog/content/journal/$(date "+%Y-%m-%d").md'
+
 # GIT
 alias gl="git pull"
 alias gs="git status"
