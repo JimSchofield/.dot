@@ -33,6 +33,7 @@ source ~/.dot/check_for_tools.sh
 
 # GENERAL
 alias li="exa -la"
+alias tree="exa -T --git-ignore"
 alias ip="curl icanhazip.com"
 
 # SYSTEM SPECIFIC
