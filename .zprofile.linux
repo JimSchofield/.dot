@@ -12,3 +12,4 @@ mapescape
 # map open file to system default in gui
 alias op="xdg-open"                                                                                                                                                                                                              
 
+alias restart-plex="sudo service plexmediaserver restart"
