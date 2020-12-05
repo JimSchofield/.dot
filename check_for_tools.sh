@@ -18,6 +18,7 @@ required_apps=(
     nvim
     rg
     rustc
+    ranger
     tig
     tldr
     tmux

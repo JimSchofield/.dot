@@ -49,6 +49,9 @@ alias go='cd "$(fd . $HOME --type d --hidden| fzf)"'
 # Search from ./
 alias gfh='cd "$(fd . "./" --type d --hidden| fzf)"'
 
+# Change directories with ranger
+alias r=". ranger"
+
 # HTTP-SERVER
 alias serve="http-server ."
 
