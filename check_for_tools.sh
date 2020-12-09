@@ -17,7 +17,6 @@ required_apps=(
     npm
     nvim
     rg
-    rustc
     ranger
     tig
     tldr

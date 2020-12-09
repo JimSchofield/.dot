@@ -77,4 +77,3 @@ alias t="task"
 alias tw="clear;task +work"
 alias tc="clear;task"
 alias tt="clear;task +TODAY"
-
