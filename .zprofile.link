@@ -24,7 +24,8 @@ fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
-export PATH="/Users/jschofie/Library/Python/2.7/bin:$PATH"
+export PATH="/usr/local/opt/mysql-client@5.7/bin:$PATH"
+export PATH="~/Library/Python/2.7/bin:$PATH"
 export TERM=xterm-256color
 export EDITOR=nvim
 
@@ -67,6 +68,8 @@ alias gl="git pull"
 alias gs="git status"
 alias gp="git push"
 alias gpp="git pull; git push"
+alias gpf="git push --force-with-lease"
+alias gca="git commit --amend"
 alias unstage="git reset HEAD"
 alias revert="git checkout --"
 alias gcd="git checkout develop"
@@ -77,3 +80,11 @@ alias t="task"
 alias tw="clear;task +work"
 alias tc="clear;task"
 alias tt="clear;task +TODAY"
+
+# NVIM
+alias n="nvim ."
+
+# Setting PATH for Python 3.9
+# The original version is saved in .zprofile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"
+export PATH
