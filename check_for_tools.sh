@@ -7,7 +7,6 @@ echo 'Checking for necessary tools...'
 required_apps=(
     bat
     brew
-    btm
     dust
     exa
     fd
