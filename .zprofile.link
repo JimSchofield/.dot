@@ -66,6 +66,7 @@ alias journal='nvim ~/blog/content/journal/$(date "+%Y-%m-%d").md'
 # GIT
 alias gl="git pull"
 alias gs="git status"
+alias gss="git status -s"
 alias gp="git push"
 alias gpp="git pull; git push"
 alias gpf="git push --force-with-lease"
