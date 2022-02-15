@@ -26,3 +26,8 @@ set -g status-right ' #[fg=colour233,bg=white] %A, %d %b %Y %I:%M %p '
 
 # set mouse mode on <leader> m
 bind m run ". ~/.dot/.tmux.util && toggle_mouse"
+
+# Open new panes in current path
+bind c new-window -c "#{pane_current_path}"
+bind '"' split-window -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"

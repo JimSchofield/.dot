@@ -65,8 +65,11 @@ alias journal='nvim ~/blog/content/journal/$(date "+%Y-%m-%d").md'
 # GIT
 alias gl="git pull"
 alias gs="git status"
+alias gss="git status -s"
 alias gp="git push"
 alias gpp="git pull; git push"
+alias gpf="git push --force-with-lease"
+alias gca="git commit --amend"
 alias unstage="git reset HEAD"
 alias revert="git checkout --"
 alias gcd="git checkout develop"
@@ -78,8 +81,12 @@ alias tw="clear;task +work"
 alias tc="clear;task"
 alias tt="clear;task +TODAY"
 
+# NVIM
+alias n="nvim ."
+
 # Setting PATH for Python 3.9
 # The original version is saved in .zprofile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"
 export PATH
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
