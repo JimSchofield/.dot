@@ -15,7 +15,6 @@ set-option -g allow-rename off
 # Show spotify info
 # set -g status-right '#(tmux-spotify)'
 
-
 # to remove tmux delay
 set -s escape-time 0
 
@@ -31,3 +30,6 @@ bind m run ". ~/.dot/.tmux.util && toggle_mouse"
 bind c new-window -c "#{pane_current_path}"
 bind '"' split-window -c "#{pane_current_path}"
 bind % split-window -h -c "#{pane_current_path}"
+
+bind g display-popup -h "75%" -w "75%" -d "#{pane_current_path}" -E 'exec $SHELL -lc "tig"'
+bind ` display-popup -h "75%" -w "75%" -d "#{pane_current_path}" -E 'exec $SHELL -l'
