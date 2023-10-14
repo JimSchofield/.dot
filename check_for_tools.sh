@@ -18,7 +18,6 @@ required_apps=(
     rg
     ranger
     tig
-    tldr
     tmux
 )
 

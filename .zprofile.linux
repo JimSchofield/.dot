@@ -1,15 +1,15 @@
-# Linux specific zsh config                                                                                                                                                                                                                      
+# Linux specific zsh config
 echo "Sourcing linux-specific config"
 
-# Map right alt to escape...                                                                                                                                                                                                     
+# Map right alt to escape...
 # I use xev to inspect key number and then map here
-alias mapescape="xmodmap -e 'keycode 134 = Escape'"                                                                                                                                                                              
-xmodmap -e 'keycode 134 = Escape'                                                                                                                                                                                                
+alias mapescape="xmodmap -e 'keycode 134 = Escape'"
+xmodmap -e 'keycode 134 = Escape'
 
 # Automatically map escape on terminal load
 mapescape
 
 # map open file to system default in gui
-alias op="xdg-open"                                                                                                                                                                                                              
+alias op="xdg-open"
 
 alias restart-plex="sudo service plexmediaserver restart"
