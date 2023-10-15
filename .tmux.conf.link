@@ -15,10 +15,9 @@ set-option -g allow-rename off
 set -s escape-time 0
 
 # tmux theme
-# source-file "${HOME}/.tmux-themepack/powerline/default/cyan.tmuxtheme"
-source-file "~/.dot/tokyonight_night.tmux"
+source-file "~/.dot/tokyo-night/tokyonight_night.tmux"
 set -g status-right-length 82
-set -g status-right ' #[fg=colour233,bg=white] %A, %d %b %Y %I:%M %p '
+set -g status-right ' #[bg=colour233,fg=white] %d %b %Y %I:%M %p '
 
 # set mouse mode on <leader> m
 bind m run ". ~/.dot/.tmux.util && toggle_mouse"
