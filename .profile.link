@@ -1,9 +1,12 @@
 # /* vim: set filetype=sh : */
 
+# location of .dot repo
+DOT=~/.dot
+
 #OS specific
 if [ "$OSTYPE" = "linux-gnu" ]; then
     #Linux specific
-    source ~/.dot/.profile.linux
+    source $DOT/.profile.linux
 fi
 
 # Source work specific profile if it exists
@@ -52,3 +55,6 @@ alias whodis="git shortlog -sne --all"
 
 # NVIM
 alias n="nvim ."
+
+source $DOT/fzf/fzf-completion.zsh
+source $DOT/fzf/fzf-key-bindings.zsh
