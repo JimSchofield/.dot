@@ -1,0 +1,67 @@
+#!/bin/zsh
+# /* vim: set filetype=sh : */
+
+#OS specific
+if [ "$OSTYPE" = "linux-gnu" ]; then
+    #Linux specific
+    source ~/.dot/.profile.linux
+fi
+
+export PATH="$HOME/bin:$PATH"
+export TERM=screen-256color
+export EDITOR=nvim
+
+# GENERAL
+alias li="exa -la"
+alias tree="exa -T --git-ignore"
+alias q="exit"
+
+# CS
+alias home="cd ~/work/falcon-console"
+alias work="cd ~/work/"
+
+#### FZF
+# set fd as default for fzf
+export FZF_DEFAULT_COMMAND='fd --type f --hidden'
+
+# Search from ~
+# alias go='cd "$(fd . $HOME --type d --hidden| fzf)"'
+alias gof='cd "$(fd . $HOME/work/falcon-console --type d --hidden| fzf)"'
+
+# Search from ./
+alias gfh='cd "$(fd . "./" --type d --hidden| fzf)"'
+
+# Change directories with ranger
+alias r=". ranger"
+
+# GIT
+alias gl="git pull"
+alias gs="git status"
+alias gss="git status -s"
+alias gp="git push"
+alias gpf="git push --force-with-lease"
+alias gca="git commit --amend"
+alias unstage="git reset HEAD"
+alias gc-="git checkout -"
+alias master="git checkout master"
+alias main="git checkout main"
+alias gcd="git checkout develop"
+
+alias whodis="git shortlog -sne --all"
+
+# NVIM
+alias n="nvim ."
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# NVIM
+alias n="nvim ."
+
+# Setting PATH for Python 3.9
+export PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"
+
+alias debug-docs-cli="TS_NODE_CWD=../docs-cli node --inspect-brk --loader ./node_modules/@crowdstrike/docs-cli/node_modules/ts-node/esm.mjs node_modules/.bin/docs-cli"
+alias docs-cli-re-link="yarn unlink @crowdstrike/docs-cli && rm -Rf node_modules && yarn install --force && yarn link @crowdstrike/docs-cli"
+alias debug-falcon-notifications="TS_NODE_CWD=../docs-cli node --inspect-brk --loader ./node_modules/@crowdstrike/docs-cli/node_modules/ts-node/esm.mjs node_modules/.bin/docs-cli"
+
+# export PATH="$(yarn global bin):~/.local/bin:$PATH"
