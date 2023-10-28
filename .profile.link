@@ -58,3 +58,6 @@ alias n="nvim ."
 
 source $DOT/fzf/fzf-completion.zsh
 source $DOT/fzf/fzf-key-bindings.zsh
+
+# Oxide
+eval "$(zoxide init zsh)"
