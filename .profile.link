@@ -16,12 +16,13 @@ test -f $WORK_ZPROFILE && source $WORK_ZPROFILE
 export PATH="$HOME/bin:$PATH"
 export TERM=screen-256color
 export EDITOR=nvim
+export PATH="/Users/jschof/.local/bin:$PATH"
 # export PATH="$(yarn global bin):~/.local/bin:$PATH"
 export PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"
 
 # GENERAL
-alias li="exa -la"
-alias tree="exa -T --git-ignore"
+alias li="lsd -la"
+alias tree="lsd -T --git-ignore"
 alias q="exit"
 
 #### FZF
@@ -61,3 +62,8 @@ source $DOT/fzf/fzf-key-bindings.zsh
 
 # Oxide
 eval "$(zoxide init zsh)"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# cpp
+alias mymake="clang++ -Wall -std=c++11";
