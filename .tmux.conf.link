@@ -1,8 +1,29 @@
 # reload tmux config
 bind r source-file ~/.tmux.conf\; display "File re-sourced!"
 
-# Terminal type configuration
-set -g default-terminal "screen-256color"
+# Terminal type configuration.
+# tmux-256color (not screen-256color) advertises italics and undercurl;
+# the RGB override is what actually enables truecolor inside tmux.
+set -g default-terminal "tmux-256color"
+set -ga terminal-overrides ",*256col*:Tc"
+set -ga terminal-overrides ",xterm-256color:RGB"
+
+# Undercurl + colored underlines, used by LSP diagnostics in nvim.
+set -ga terminal-overrides ',*:Smulx=\E[4::%p1%dm'
+set -ga terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}/%d::%p1%{256}/%{256}%%d::%p1%{256}%%d%;m'
+
+# Keep scrollback useful.
+set -g history-limit 50000
+
+# Renumber windows when one closes, so indexes stay contiguous.
+set -g renumber-windows on
+
+# 1-indexed windows/panes match the number keys on the keyboard.
+set -g base-index 1
+setw -g pane-base-index 1
+
+# Focus events, needed for nvim autoread / gitsigns refresh.
+set -g focus-events on
 
 # Create/destroy a session
 bind + new-session

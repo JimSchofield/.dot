@@ -9,16 +9,33 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
     source $DOT/.profile.linux
 fi
 
-# Source work specific profile if it exists
-WORK_ZPROFILE=~/.zprofile_work
-test -f $WORK_ZPROFILE && source $WORK_ZPROFILE
+# Homebrew first: it prepends to PATH, so anything we want to win
+# over brew-installed binaries must be exported *after* this line.
+if [ -x /opt/homebrew/bin/brew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
-export PATH="$HOME/bin:$PATH"
-export TERM=screen-256color
+# Prepend a directory to PATH only if it exists and isn't already there.
+# Keeps PATH from collecting duplicates and dead entries across re-sourcing.
+path_prepend() {
+    [ -d "$1" ] || return 0
+    case ":$PATH:" in
+        *":$1:"*) ;;
+        *) PATH="$1:$PATH" ;;
+    esac
+}
+
+path_prepend "$HOME/.local/bin"
+path_prepend "$HOME/bin"
+path_prepend "$HOME/learning/lexical/_build/dev/package/lexical/bin"
+path_prepend "/usr/local/go/bin"
+export PATH
+
 export EDITOR=nvim
-export PATH="/Users/jschof/.local/bin:$PATH"
-# export PATH="$(yarn global bin):~/.local/bin:$PATH"
-export PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"
+
+# Let the terminal advertise its own capabilities. Hardcoding
+# screen-256color outside tmux breaks truecolor and undercurl.
+[ -n "$TMUX" ] && export TERM=screen-256color
 
 # GENERAL
 alias li="lsd -la"
@@ -29,14 +46,8 @@ alias q="exit"
 # set fd as default for fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden'
 
-# Search from ~
-alias go='cd "$(fd . $HOME --type d --hidden| fzf)"'
-
 # Search from ./
 alias gfh='cd "$(fd . "./" --type d --hidden| fzf)"'
-
-# Change directories with ranger
-alias r=". ranger"
 
 # GIT
 alias gl="git pull"
@@ -63,7 +74,13 @@ source $DOT/fzf/fzf-key-bindings.zsh
 # Oxide
 eval "$(zoxide init zsh)"
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # cpp
 alias mymake="clang++ -Wall -std=c++11";
+
+# Source work specific profile if it exists.
+# Last so work settings can override anything above.
+WORK_ZPROFILE=~/.zprofile_work
+[ -f "$WORK_ZPROFILE" ] && source "$WORK_ZPROFILE"
+
+# Don't let the check above leave a nonzero $? sitting in a fresh shell.
+true

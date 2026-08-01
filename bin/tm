@@ -1,35 +1,23 @@
 #!/usr/bin/env bash
 
-# # abort if we're already inside of a tmux session
-# [ "$TMUX" == "" ] || exit 0
+# Tmux session manager using fzf for interactive selection.
+# Lists sessions and attaches (or switches, if already inside tmux).
 
-# # present menu for user to choose which workspace to open
-# PS3="Please choose your session: "
-# options=($(tmux list-sessions -F "#S" 2>/dev/null) "New Session" "zsh")
-# echo "Available Sessions"
-# echo "------------------"
-# echo " "
-# select opt in "${options[@]}"
-# do
-# 	case $opt in
-# 		"New Session")
-# 			read -rp "Enter new session name: " SESSION_NAME
-# 			tmux new -s "$SESSION_NAME"
-# 			break
-# 			;;
-# 		"zsh")
-# 			zsh --login
-# 			break;;
-# 		*)
-# 			tmux attach-session -t "$opt"
-# 			break
-# 			;;
-# 	esac
-# done
+set -euo pipefail
 
-TARGET=`tmux ls | fzf | cut -d: -f1`
+if ! tmux has-session 2>/dev/null; then
+  echo "No tmux sessions running." >&2
+  exit 1
+fi
 
-if ["$TERM_PROGRAM" = tmux ]; then
+# fzf exits nonzero when cancelled; that's not an error worth reporting.
+TARGET=$(tmux list-sessions -F '#S' | fzf --prompt='session> ' --height=40% --reverse) || exit 0
+
+# Attaching to an empty target grabs the wrong session, so bail out.
+[ -n "$TARGET" ] || exit 0
+
+# $TMUX is set by tmux itself; TERM_PROGRAM gets clobbered by the terminal.
+if [ -n "${TMUX:-}" ]; then
   tmux switch-client -t "$TARGET"
 else
   tmux attach-session -t "$TARGET"
