@@ -18,7 +18,6 @@ required_apps=(
     rg      # telescope live_grep
     tig     # tmux <leader>g popup
     tmux
-    zoxide  # sourced unconditionally by .profile.link
 )
 
 # Nice to have, but nothing here breaks without them.

@@ -29,7 +29,7 @@ can live in `~/.gitconfig` without conflicting with the committed copy.
 
 ## Layout
 
-- `.profile.link` — PATH, aliases, fzf/zoxide init. Sourced as `~/.zprofile`.
+- `.profile.link` — PATH, aliases, fzf init. Sourced as `~/.zprofile`.
 - `.profile.linux` — Linux-only extras, sourced automatically on Linux.
 - `~/.zprofile_work` — optional, untracked; sourced last so work settings win.
 - `.tmux.conf.link` — tmux config, incl. vim-tmux-navigator bindings.
